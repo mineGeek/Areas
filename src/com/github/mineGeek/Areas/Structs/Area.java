@@ -20,6 +20,8 @@ public class Area {
 	public Set<Integer> chunkHashes = new HashSet<Integer>();
 	public Set<String> players = new HashSet<String>();
 	public Reset reset;
+	public enum PVPMode { ON, OFF, DEFAULT}
+	public PVPMode pvpMode =PVPMode.DEFAULT;
 	
 	public Area( Reset reset ) { this.reset = reset; }
 	

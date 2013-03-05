@@ -43,5 +43,9 @@ public class OnAreaExit extends Event implements Cancellable {
 	@Override
 	public HandlerList getHandlers() {
 		return handlers;
-	}	
+	}
+	
+	public static HandlerList getHandlerList() {
+	    return handlers;
+	}
 }
