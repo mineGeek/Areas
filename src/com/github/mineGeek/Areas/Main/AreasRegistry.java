@@ -6,7 +6,7 @@ import com.github.mineGeek.Areas.Structs.Area.PVPMode;
 import com.github.mineGeek.Areas.Structs.RegistryPlayerLocations;
 import com.github.mineGeek.Areas.Structs.RegistryReset;
 
-public class Registry {
+public class AreasRegistry {
 
 	public static RegistryPlayerLocations players = new RegistryPlayerLocations();
 	public static RegistryReset resets = new RegistryReset();

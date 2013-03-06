@@ -11,11 +11,11 @@ import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.event.player.PlayerRespawnEvent;
 
-import com.github.mineGeek.Areas.Main.Registry;
+import com.github.mineGeek.Areas.Main.AreasRegistry;
 import com.github.mineGeek.Areas.Structs.Area.PVPMode;
 
 
-public class AreaListeners implements Listener {
+public class AreasListeners implements Listener {
 
     @EventHandler(priority = EventPriority.MONITOR)
     public void onEntityDamage(EntityDamageByEntityEvent evt) {
@@ -26,7 +26,7 @@ public class AreaListeners implements Listener {
     	
     		Player player = (Player)evt.getDamager();
     		
-    		PVPMode mode = Registry.players.getPlayerPVPMode( player );
+    		PVPMode mode = AreasRegistry.players.getPlayerPVPMode( player );
     		if ( mode == PVPMode.OFF ) evt.setCancelled( true );
     	}
     	
@@ -34,28 +34,28 @@ public class AreaListeners implements Listener {
 	
 	@EventHandler(priority = EventPriority.LOWEST)
 	public void onPlayerJoin( PlayerJoinEvent evt ) {
-		Registry.updatePlayerLocation( evt.getPlayer() );
+		AreasRegistry.updatePlayerLocation( evt.getPlayer() );
 	}
 	
     @EventHandler(priority = EventPriority.LOWEST)
     public void onPlayerLeave(PlayerQuitEvent evt ) {
-    	Registry.updatePlayerLocation( evt.getPlayer() );
+    	AreasRegistry.updatePlayerLocation( evt.getPlayer() );
     }
     
     @EventHandler(priority = EventPriority.MONITOR)
     public void PlayerMove( PlayerMoveEvent evt ) {
     	if ( evt.getFrom().getBlock().equals( evt.getTo().getBlock())) return;
-    	Registry.updatePlayerLocation( evt.getPlayer() );
+    	AreasRegistry.updatePlayerLocation( evt.getPlayer() );
     }
     
     @EventHandler(priority = EventPriority.LOWEST)
     public void onPlayerChangedWorld(PlayerChangedWorldEvent evt) {
-    	Registry.updatePlayerLocation( evt.getPlayer() );
+    	AreasRegistry.updatePlayerLocation( evt.getPlayer() );
     }
     
 	@EventHandler(priority = EventPriority.LOWEST )
     public void onRespawn(PlayerRespawnEvent evt) {
-		Registry.updatePlayerLocation( evt.getPlayer() );
+		AreasRegistry.updatePlayerLocation( evt.getPlayer() );
 	}
 	
 }

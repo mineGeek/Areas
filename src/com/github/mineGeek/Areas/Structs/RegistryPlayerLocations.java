@@ -8,7 +8,7 @@ import java.util.WeakHashMap;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
-import com.github.mineGeek.Areas.Main.Registry;
+import com.github.mineGeek.Areas.Main.AreasRegistry;
 import com.github.mineGeek.Areas.Structs.Area.PVPMode;
 
 public class RegistryPlayerLocations {
@@ -35,7 +35,7 @@ public class RegistryPlayerLocations {
 	
 	public PVPMode getPlayerPVPMode( Player p ) {
 		
-		PVPMode mode = Registry.defaultMode;
+		PVPMode mode = AreasRegistry.defaultMode;
 		
 		if ( playersToArea.containsKey( p.getName() ) ) {
 			
@@ -138,14 +138,14 @@ public class RegistryPlayerLocations {
 		Integer hash = p.getLocation().getChunk().hashCode();
 		if ( getChunkOfPlayer( p.getName() ) == null ) {
 			addPlayer( p.getName(), hash );
-			Registry.updatePlayerChunk(p, hash );
+			AreasRegistry.updatePlayerChunk(p, hash );
 		} else if ( !getChunkOfPlayer( p.getName() ).equals( hash ) ) {
 			removePlayer( p.getName() );
 			addPlayer( p.getName(), hash );
-			Registry.updatePlayerChunk(p, hash );
+			AreasRegistry.updatePlayerChunk(p, hash );
 		}
 		
-		Registry.updatePlayerMove(p);
+		AreasRegistry.updatePlayerMove(p);
 		
 	
 		

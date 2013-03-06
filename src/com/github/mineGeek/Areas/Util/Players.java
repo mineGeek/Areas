@@ -9,11 +9,11 @@ import org.bukkit.entity.Player;
 public class Players {
 
 	public static Set<Player> getPlayerObjectsFromList( Set<String> names ) {
+		
 		Set<Player> players = new HashSet<Player>();
 		for ( String x : names ) {
 			if ( Bukkit.getPlayer(x).isOnline() ) players.add( Bukkit.getPlayer( x ));
-		}
-		
+		}		
 		return players;
 		
 	}

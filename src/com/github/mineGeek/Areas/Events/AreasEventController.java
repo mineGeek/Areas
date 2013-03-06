@@ -3,11 +3,11 @@ package com.github.mineGeek.Areas.Events;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
-import com.github.mineGeek.Areas.Main.Registry;
+import com.github.mineGeek.Areas.Main.AreasRegistry;
 import com.github.mineGeek.Areas.Structs.Area;
 
 
-public class EventController {
+public class AreasEventController {
 
 	public static boolean PlayerEnterArea( Player p, Area area ) {
 				
@@ -15,7 +15,7 @@ public class EventController {
 		Bukkit.getServer().getPluginManager().callEvent(event);
 		
 		boolean result = !event.isCancelled();
-		Registry.players.addPlayerToArea(p, area);
+		AreasRegistry.players.addPlayerToArea(p, area);
 		
 		return result;
 		
@@ -27,7 +27,7 @@ public class EventController {
 		Bukkit.getServer().getPluginManager().callEvent(event);
 		
 		boolean result = !event.isCancelled();			
-		Registry.players.removePlayerFromArea(p, area);
+		AreasRegistry.players.removePlayerFromArea(p, area);
 		
 		return result;
 	}

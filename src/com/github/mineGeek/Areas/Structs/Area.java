@@ -9,7 +9,7 @@ import org.bukkit.Chunk;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 
-import com.github.mineGeek.Areas.Events.EventController;
+import com.github.mineGeek.Areas.Events.AreasEventController;
 import com.github.mineGeek.Areas.Util.Players;
 
 public class Area {
@@ -83,10 +83,10 @@ public class Area {
 		boolean wasInArea = players.contains( p.getName() );
 		
 		if ( !inArea && wasInArea ) {
-			if ( EventController.PlayerExitArea(p, this ) ) players.remove( p.getName() );
+			if ( AreasEventController.PlayerExitArea(p, this ) ) players.remove( p.getName() );
 			
 		} else if ( !wasInArea && inArea ) {
-			if ( EventController.PlayerEnterArea(p, this ) ) players.add( p.getName() );
+			if ( AreasEventController.PlayerEnterArea(p, this ) ) players.add( p.getName() );
 		}
 		
 	}
