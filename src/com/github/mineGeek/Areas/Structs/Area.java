@@ -19,11 +19,10 @@ public class Area {
 	public String worldName;
 	public Set<Integer> chunkHashes = new HashSet<Integer>();
 	public Set<String> players = new HashSet<String>();
-	public Reset reset;
+
 	public enum PVPMode { ON, OFF, DEFAULT}
 	public PVPMode pvpMode =PVPMode.DEFAULT;
-	
-	public Area( Reset reset ) { this.reset = reset; }
+
 	
 	public void setNE( Location ne ) {
 		
@@ -139,7 +138,6 @@ public class Area {
 	}	
 	
 	public void close() {
-		reset = null;
 		sw = null;
 		ne = null;
 		chunkHashes.clear();

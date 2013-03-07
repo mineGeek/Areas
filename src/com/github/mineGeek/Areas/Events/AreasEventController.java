@@ -31,12 +31,5 @@ public class AreasEventController {
 		
 		return result;
 	}
-	
-	public static void PlayerEnterChunk( Player p, Area area ) {
-		p.sendMessage( "Chunk Enter: " + area.reset.tag );
-	}
 
-	public static void PlayerExitChunk( Player p, Area area ) {
-		p.sendMessage( "Chunk Exit: " + area.reset.tag );
-	}
 }
