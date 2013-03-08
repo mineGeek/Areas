@@ -8,8 +8,8 @@ import com.github.mineGeek.Areas.Structs.RegistryPlayerLocations;
 
 public class AreasRegistry {
 
-	public static RegistryPlayerLocations players = new RegistryPlayerLocations();
-	public static IAreaEventsHandler areaHandler = null;
+	public static RegistryPlayerLocations 	players 	= new RegistryPlayerLocations();
+	public static IAreaEventsHandler 		areaHandler = null;
 	
 	public static PVPMode defaultMode = PVPMode.OFF;
 	
@@ -18,19 +18,16 @@ public class AreasRegistry {
 	}
 	
 	public static void updatePlayerLocation( Player p ) {
-		//Bukkit.getLogger().info("updatePlayerLocation");
 		players.updatePlayerLocation(p);
 		
 	}
 	
 	public static void updatePlayerChunk( Player p, Integer oldHash ) {
-		//Bukkit.getLogger().info("updatePlayerChunk");
 		areaHandler.playerMoveChunk(p, oldHash, p.getLocation().getChunk().hashCode() );
 		
 	}
 	
 	public static void updatePlayerMove( Player p ) {
-		//Bukkit.getLogger().info("updatePlayerMove");
 		areaHandler.playerMove(p);
 		
 	}

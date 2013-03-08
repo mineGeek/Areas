@@ -17,6 +17,10 @@ import com.github.mineGeek.Areas.Structs.Area.PVPMode;
 
 public class AreasListeners implements Listener {
 
+	/**
+	 * Handles PVP toggling in area.
+	 * @param evt
+	 */
     @EventHandler(priority = EventPriority.MONITOR)
     public void onEntityDamage(EntityDamageByEntityEvent evt) {
     	
@@ -32,27 +36,47 @@ public class AreasListeners implements Listener {
     	
     }	
 	
+    /**
+     * Registers players location within areas when they join
+     * @param evt
+     */
 	@EventHandler(priority = EventPriority.LOWEST)
 	public void onPlayerJoin( PlayerJoinEvent evt ) {
 		AreasRegistry.updatePlayerLocation( evt.getPlayer() );
 	}
 	
+	/**
+	 * Updates players last location when they leave
+	 * @param evt
+	 */
     @EventHandler(priority = EventPriority.LOWEST)
     public void onPlayerLeave(PlayerQuitEvent evt ) {
     	AreasRegistry.updatePlayerLocation( evt.getPlayer() );
     }
     
+    /**
+     * Updates players location within system when they move a block
+     * @param evt
+     */
     @EventHandler(priority = EventPriority.MONITOR)
     public void PlayerMove( PlayerMoveEvent evt ) {
     	if ( evt.getFrom().getBlock().equals( evt.getTo().getBlock())) return;
     	AreasRegistry.updatePlayerLocation( evt.getPlayer() );
     }
     
+    /**
+     * Updates players location within system when they change worlds
+     * @param evt
+     */
     @EventHandler(priority = EventPriority.LOWEST)
     public void onPlayerChangedWorld(PlayerChangedWorldEvent evt) {
     	AreasRegistry.updatePlayerLocation( evt.getPlayer() );
     }
     
+    /**
+     * Updates players location within system when they respawn
+     * @param evt
+     */
 	@EventHandler(priority = EventPriority.LOWEST )
     public void onRespawn(PlayerRespawnEvent evt) {
 		AreasRegistry.updatePlayerLocation( evt.getPlayer() );

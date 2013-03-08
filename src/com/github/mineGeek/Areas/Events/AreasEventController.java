@@ -9,6 +9,13 @@ import com.github.mineGeek.Areas.Structs.Area;
 
 public class AreasEventController {
 
+	/**
+	 * Called when a player moves into an area. Generates
+	 * a Bukkit event for other plugins to respond to.
+	 * @param player
+	 * @param area
+	 * @return true is not cancelled.
+	 */
 	public static boolean PlayerEnterArea( Player p, Area area ) {
 				
 		OnAreaEnter event = new OnAreaEnter( p, area );
@@ -21,6 +28,13 @@ public class AreasEventController {
 		
 	}
 	
+	/**
+	 * Called when a player moves out of an area. Generates
+	 * a Bukkit even for other plugins to respond to
+	 * @param player
+	 * @param area
+	 * @return true if not cancelled
+	 */
 	public static boolean PlayerExitArea( Player p, Area area ) {
 		
 		OnAreaExit event = new OnAreaExit( p, area );
